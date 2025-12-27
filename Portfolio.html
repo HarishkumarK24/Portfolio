@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harishkumar K | Portfolio</title>
+    <style>
+        /* Light Theme Color Palette */
+        :root {
+            --bg-main: #ffffff;
+            --bg-sub: #fcfdfe;
+            --accent: #2563eb;
+            --text-bold: #0f172a;
+            --text-soft: #64748b;
+            --border: #f1f5f9;
+            --card-shadow: rgba(148, 163, 184, 0.08);
+        }
+
+        /* Modern Reset & Typography */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            color: var(--text-soft); 
+            line-height: 1.6;
+            background-color: var(--bg-main);
+            scroll-behavior: smooth;
+        }
+
+        /* Clean Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 10%;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(12px);
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-links { display: flex; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-soft); font-size: 0.9rem; margin-left: 2rem; transition: 0.3s; font-weight: 500; }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* Resume Button Style */
+        .resume-btn {
+            background: var(--accent);
+            color: #ffffff !important;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-weight: 600 !important;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+        .resume-btn:hover { background: #1e40af !important; transform: translateY(-2px); }
+        .logo { font-weight: 800; font-size: 1.1rem; color: var(--text-bold); letter-spacing: 0.5px; }
+
+        /* Two-Column Hero Layout */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 100px 10% 80px;
+            gap: 50px;
+        }
+
+        .hero-content { flex: 1.2; }
+        .hero-visual { 
+            flex: 0.8; 
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* Technical Pulse Card */
+        .tech-card {
+            background: var(--bg-sub);
+            padding: 35px;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px var(--card-shadow);
+        }
+
+        .card-header { font-size: 0.7rem; color: var(--accent); font-weight: 800; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1.5px; }
+        .stat-item { margin-bottom: 22px; }
+        .stat-label { font-size: 0.75rem; color: var(--text-soft); font-weight: 600; display: block; margin-bottom: 6px; }
+        .stat-value { font-size: 0.95rem; color: var(--text-bold); font-weight: 700; display: block; }
+
+        .bar-bg { background: #edf2f7; height: 6px; border-radius: 10px; margin-top: 10px; overflow: hidden; }
+        .bar-fill { background: var(--accent); height: 100%; border-radius: 10px; opacity: 0.8; }
+
+        h1 { font-size: 3.5rem; line-height: 1.1; color: var(--text-bold); margin-bottom: 20px; letter-spacing: -1px; }
+        .subtitle { font-size: 1.2rem; color: var(--text-soft); margin-bottom: 30px; max-width: 850px; }
+
+        /* DevOps Skills Tags */
+        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px;}
+        .skill-tag { 
+            background: var(--bg-sub); 
+            padding: 8px 18px; 
+            border-radius: 12px; 
+            font-size: 0.8rem; 
+            font-weight: 600; 
+            color: var(--text-bold);
+            border: 1px solid var(--border);
+        }
+
+        /* Project Section */
+        .work { padding: 80px 10%; background: var(--bg-sub); border-top: 1px solid var(--border); }
+        .section-title { margin-bottom: 40px; font-size: 1.4rem; font-weight: 800; color: var(--text-bold); text-transform: uppercase; letter-spacing: 2px; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        .item {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            background: var(--bg-main);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .item:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 20px 40px var(--card-shadow);
+            border-color: var(--accent);
+        }
+        
+        .thumbnail {
+            background: #f8fafc;
+            height: 160px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border: 1px solid var(--border);
+        }
+
+        .item h3 { font-size: 1.5rem; margin-bottom: 12px; color: var(--text-bold); }
+        .item p { font-size: 0.95rem; color: var(--text-soft); margin-bottom: 20px; flex-grow: 1; }
+        .tech-stack { font-size: 0.75rem; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+        .view-cta { color: var(--accent); font-weight: 700; font-size: 0.85rem; margin-top: auto; }
+
+        /* Footer */
+        footer { padding: 100px 10% 60px; border-top: 1px solid var(--border); background: var(--bg-main); }
+        .email-link { 
+            font-size: 2.2rem; 
+            font-weight: 800; 
+            text-decoration: none; 
+            color: var(--text-bold); 
+            display: inline-block;
+            margin-bottom: 25px;
+            border-bottom: 4px solid var(--accent); 
+            transition: 0.3s;
+        }
+        .email-link:hover { opacity: 0.7; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 968px) {
+            header { flex-direction: column; padding-top: 60px; text-align: center; gap: 40px; }
+            .hero-visual { justify-content: center; width: 100%; }
+            h1 { font-size: 2.5rem; }
+            .subtitle { margin: 0 auto 30px; }
+            .skills-container { justify-content: center; }
+            nav { padding: 1.5rem 5%; }
+            header, .work, footer { padding-left: 5%; padding-right: 5%; }
+            .grid { grid-template-columns: 1fr; }
+            .nav-links a { margin-left: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <p class="logo">HARISHKUMAR K</p>
+        <div class="nav-links">
+            <a href="#work">Work</a>
+            <a href="Resume6.pdf" target="_blank" class="resume-btn">Resume</a>
+            <a href="mailto:harishkumark.cs24@bitsathy.ac.in">Contact</a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="hero-content">
+            <h1>Designing digital experiences that matter.</h1>
+            <p class="subtitle">
+                Student of B.E. Computer Science Engineering. A quick learner and problem solver with leadership abilities and teamwork experience. 
+                Passionate about building a career in the <b>DevOps domain</b> and exploring real-world technology.
+            </p>
+            <div class="skills-container">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">MySQL</span>
+                <span class="skill-tag">Tkinter GUI</span>
+                <span class="skill-tag">Linux</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">DevOps</span>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="tech-card">
+                <div class="card-header">Proficiency Index</div>
+                <div class="stat-item">
+                    <span class="stat-label">Backend Logic (Python)</span>
+                    <span class="stat-value">Core Application Development</span>
+                    <div class="bar-bg"><div class="bar-fill" style="width: 90%;"></div></div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Database Management</span>
+                    <span class="stat-value">Relational Schemas (MySQL)</span>
+                    <div class="bar-bg"><div class="bar-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="stat-item" style="margin-bottom: 0;">
+                    <span class="stat-label">System Accuracy</span>
+                    <span class="stat-value">Optimized Data Processing</span>
+                    <div class="bar-bg"><div class="bar-fill" style="width: 95%;"></div></div>
+                </div>
+            </div>
+        </div> 
+    </header>
+
+    <section class="work" id="work">
+        <h2 class="section-title">Technical Projects</h2>
+        <div class="grid">
+            
+            <a href="Travel Booking Management System 2023-24.pdf" target="_blank" class="item">
+                <div class="thumbnail">✈️</div>
+                <div class="tech-stack">Python • MySQL • SQL Connector</div>
+                <h3>Travel Booking Management System</h3>
+                <p>
+                    An automated management program developed to reduce manual effort in daily travel logistics. 
+                    Features include secure user authentication, real-time transport booking, and a digital travel log.
+                </p>
+                <span class="view-cta">VIEW PROJECT DOCUMENTATION →</span>
+            </a>
+
+            <a href="Library Management System FINAL.pdf" target="_blank" class="item">
+                <div class="thumbnail">📚</div>
+                <div class="tech-stack">Python • Tkinter • MySQL</div>
+                <h3>Library Management System</h3>
+                <p>
+                    A computerized system for educational institutions featuring dual-portal access for Students and Admins. 
+                    Built with a Tkinter GUI to manage book records, issue logs, and user credentials.
+                </p>
+                <span class="view-cta">VIEW PROJECT DOCUMENTATION →</span>
+            </a>
+
+        </div>
+    </section>
+
+    <footer>
+        <p style="margin-bottom: 10px; color: var(--text-soft); text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; font-weight: 700;">Get in touch</p>
+        <a href="mailto:harishkumark.cs24@bitsathy.ac.in" class="email-link">harishkumark.cs24@bitsathy.ac.in</a>
+        <p style="margin-top: 40px; color: var(--text-soft); font-size: 0.85rem;">© 2025 Harishkumar K. Focused on DevOps & Infrastructure.</p>
+    </footer>
+
+</body>
+</html>
